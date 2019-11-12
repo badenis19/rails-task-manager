@@ -1,0 +1,26 @@
+<h1>My tasks</h1>
+
+
+<% @tasks.each do |task| %>
+  <% if task.completed %>
+    <img src="http://pluspng.com/img-png/tick-box-png-tick-box-icon-this-is-a-checkmark-inside-of-a-square-with-rounded-corners-png-50-px-1600.png" width="10px" height="10px" alt="">
+  <% else %>
+    <img src="http://pluspng.com/img-png/tick-box-png-unchecked-checkbox-icon-png-50-px-1600.png" alt="" width="10px" height="10px">
+  <% end %>
+  <%= link_to task.title, task_path(task) %>
+  <%= task.details %>
+  <br>
+  <%= link_to "Edit Task", edit_path(task) %>
+  <%= link_to task_path(task), method: :delete do %>
+    <img src="https://cdn3.iconfinder.com/data/icons/cleaning-icons/512/Trash_Can-512.png" width="16px" height="16px" alt="">
+  <% end %>
+  <br>
+  <br>
+  <br>
+<% end %>
+
+<%= link_to "Add new Task", new_path %>
+
+
+
+
